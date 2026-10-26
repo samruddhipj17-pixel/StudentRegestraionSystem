@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Result</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/register">Register</a>
+        <a href="/students">Students</a>
+    </nav>
+
+    <div class="container">
+
+        <h1>{{ message }}</h1>
+
+        {% if success and student is defined %}
+
+            <h2>Student Details</h2>
+
+            <p>Name: {{ student.name }}</p>
+            <p>Email: {{ student.email }}</p>
+            <p>Age: {{ student.age }}</p>
+
+        {% elif success and students is defined %}
+
+            {% if students %}
+
+                {% for student in students %}
+
+                    <div class="student-card">
+
+                        <p>Name: {{ student.name }}</p>
+                        <p>Email: {{ student.email }}</p>
+                        <p>Age: {{ student.age }}</p>
+
+                    </div>
+
+                {% endfor %}
+
+            {% else %}
+
+                <p>No students registered yet.</p>
+
+            {% endif %}
+
+        {% else %}
+
+            <p>Please check your details and try again.</p>
+
+        {% endif %}
+
+        <br>
+
+        <a href="/register">Register Another Student</a>
+
+        <br><br>
+
+        <a href="/">Back to Home</a>
+
+    </div>
+
+</body>
+</html>

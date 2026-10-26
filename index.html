@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Registration System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/register">Register</a>
+        <a href="/students">Students</a>
+    </nav>
+
+    <div class="container">
+
+        <h1>Student Registration System</h1>
+
+        <p>Enter your details to register.</p>
+
+        <form action="/register" method="POST">
+
+            <label>Student Name</label>
+            <input type="text"
+                   name="name"
+                   placeholder="Enter your name"
+                   required>
+
+            <label>Email Address</label>
+            <input type="email"
+                   name="email"
+                   placeholder="Enter your email"
+                   required>
+
+            <label>Age</label>
+            <input type="number"
+                   name="age"
+                   min="1"
+                   max="120"
+                   placeholder="Enter your age"
+                   required>
+
+            <button type="submit">Register Student</button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
